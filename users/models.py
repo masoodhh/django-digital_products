@@ -1,7 +1,7 @@
 import random
 
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.core import validators
 from django.utils import timezone
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager, send_mail
@@ -135,7 +135,7 @@ class UserProfile(models.Model):
     nick_name = models.CharField(_('nick_name'), max_length=150, blank=True)
     avatar = models.ImageField(_('avatar'), blank=True)
     birthday = models.DateField(_('birthday'), null=True, blank=True)
-    gender = models.NullBooleanField(_('gender'), help_text=_('female is False, male is True, null is unset'))
+    gender = models.BooleanField(_('gender'), help_text=_('female is False, male is True, null is unset'), null=True,)
     province = models.ForeignKey(verbose_name=_('province'), to='Province', null=True, on_delete=models.SET_NULL)
     # email = models.EmailField(_('email address'), blank=True)
     # phone_number = models.BigIntegerField(_('mobile number'), null=True, blank=True,

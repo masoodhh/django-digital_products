@@ -1,4 +1,7 @@
+from telnetlib import AUTHENTICATION
+
 from django.http import Http404
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -8,6 +11,7 @@ from .serializers import ProductSerializer
 
 
 class ProductListView(APIView):
+
     def get(self, request):
         products = Product.objects.all()
         serializer = ProductSerializer(products, many=True, context={'request': request})
@@ -15,6 +19,8 @@ class ProductListView(APIView):
 
 
 class ProductDetailsView(APIView):
+    permission_classes = [IsAuthenticated]
+
     def get_object(self, pk):
         try:
             return Product.objects.get(pk=pk)
@@ -66,6 +72,7 @@ class FileDetailsView(APIView):
             raise Http404
 
     def get(self, request, product_id,pk):
+
         file = self.get_object(product_id,pk)
         serializer = FileSerializer(file, context={'request': request})
         return Response(serializer.data)
