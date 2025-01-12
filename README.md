@@ -4,7 +4,7 @@ This repository contains a comprehensive Django-based backend project for managi
 
 ---
 
-## 📚 **Project Source**
+## 📚 **Project Source Of Tutorial**
 
 - **YouTube Tutorial**: [Vision Academy](https://www.youtube.com/watch?v=HQwPC5CkOG4&list=PL8oRZVu1TnSJdnbFLDoXKPkd_5gdaAu-z&index=11)
 - **GitHub Repository**: [arashsa07/digital_products](https://github.com/arashsa07/digital_products)
